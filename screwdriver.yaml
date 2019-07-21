@@ -1,0 +1,7 @@
+jobs:
+  A:
+    image: node:10
+    requires: [ ~pr, ~commit ]
+    steps:
+      - git-tag: git tag `date +%s`
+      - push: git push origin --tags
