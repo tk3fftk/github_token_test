@@ -2,6 +2,10 @@ jobs:
   A:
     image: node:10
     requires: [ ~pr, ~commit ]
+    environment:
+      SCM_USERNAME: tk3fftk
     steps:
       - git-tag: git tag `date +%s`
       - push: git push origin --tags
+    secrets:
+      - SCM_ACCESS_TOKEN
